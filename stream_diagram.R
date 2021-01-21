@@ -26,8 +26,10 @@ milestones <- milestones %>%
     geom_point(shape = 23) +
     labs(x = "Data Prevista e/ou Realizada",
          y = "Data de Avaliação",
-         title = "Entregas - Gestão de Portfólio - PR3F e CONF") +
+         title = "Milestones do Projeto",
+         subtitle = "Status Atual: 2021-03-10") +
     theme_minimal() +
+    theme(axis.text.x = element_text(angle = 45, hjust = .1, vjust = .5)) +
     scale_y_reverse(label=function(x) strftime(chron(x), "%Y-%m-%d")) +
     scale_x_date(position = "top", # coloca o eixo x no topo
                expand = c(0, 10), # acrescenta um espaço de "0 * range + 10 * unidade" nas laterais do gráfico
@@ -35,6 +37,7 @@ milestones <- milestones %>%
                #minor_breaks = as.Date(c("2020-11-15", "2020-12-15", "2021-01-15"))
                #date_breaks = "1 month",
                #date_minor_breaks = "15 days",
+               date_labels = "%y-%m-%d"
                #date_labels = "%y (%B)" # Code	Meaning
                # %S	second (00-59)
                # %M	minute (00-59)
